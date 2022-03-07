@@ -41,5 +41,14 @@ public class Node {
     public void setPrevious(Node previous) {
         this.previous = previous;
     }
-    
+
+    @Override
+    public String toString() {
+        if (previous != null && next != null) {
+            return "Anterior: " + previous.getElement().getBettor_name() + " Actual: " + element.getBettor_name() + " Siguiente: " + next.getElement().getBettor_name();
+        } else {
+            return "Actual: " + element.getBettor_name();
+        }
+    }
+
 }
