@@ -43,22 +43,22 @@ public class VerifyBets {
         return result;
     }
 
-    private int verifingRecurser(int[] values, int pos, int toCompare, int index) {
-        if (index >= values.length - 1) {
-            return values[pos];
+    private int verifingRecurser(int[] horses, int pos, int comparator, int index) {
+        if (index >= horses.length - 1) {
+            return horses[pos];
         } else {
             try {
-                if (pos >= values.length - index - 1) {
+                if (pos >= horses.length - index - 1) {
                     index++;
                     pos = 0;
-                    toCompare = values[values.length - index - 1];
+                    comparator = horses[horses.length - index - 1];
                 }
             } catch (Exception e) {
             }
-            if (values[pos] == toCompare && index < values.length - 1) {
+            if (horses[pos] == comparator && index < horses.length - 1) {
                 this.isValid = false;
             }
-            return verifingRecurser(values, pos + 1, toCompare, index);
+            return verifingRecurser(horses, pos + 1, comparator, index);
         }
     }
 
