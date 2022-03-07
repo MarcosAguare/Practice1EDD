@@ -14,4 +14,5 @@ public class MainPrueba {
         a.readArchive("/home/aguare/Downloads/testFile.csv");
         System.out.println("Tiempo -> " + ((System.currentTimeMillis() - startTime) / 1000d) + " s");
     }
+
 }
