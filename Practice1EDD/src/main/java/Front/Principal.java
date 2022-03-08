@@ -12,7 +12,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  * @author aguare
  */
 public class Principal extends javax.swing.JFrame {
-
+    
     private Analizer analizer = new Analizer();
     private VerifyBets verify = new VerifyBets();
     private Export export = new Export();
@@ -24,7 +24,7 @@ public class Principal extends javax.swing.JFrame {
     public Principal() {
         initComponents();
         this.setLocationRelativeTo(null);
-
+        
     }
 
     /**
@@ -218,8 +218,10 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_verifyBtnActionPerformed
 
     private void insertResultBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertResultBtnActionPerformed
-        
-        //results = new Results(, verify.getAccepted());
+        int[] h = {8, 6, 1, 2, 3, 4, 5, 7, 9, 10};
+        results = new Results(h, verify.getAccepted());
+        TableBets f = new TableBets(results.getBets(), "Resultados Finales", true);
+        f.setVisible(true);
     }//GEN-LAST:event_insertResultBtnActionPerformed
 
     /**
