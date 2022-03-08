@@ -7,7 +7,7 @@ import java.time.LocalDate;
  * @author aguare
  */
 public class Bet {
-    
+
     private int[] horses;
     private Double bet_amount;
     private LocalDate date;
@@ -22,6 +22,10 @@ public class Bet {
         this.points = points;
         this.bettor_name = bettor_name;
         this.status = status;
+    }
+
+    public void sumPoints(int po) {
+        this.points += po;
     }
 
     public int[] getHorses() {
@@ -71,6 +75,5 @@ public class Bet {
     public void setStatus(boolean status) {
         this.status = status;
     }
-    
-    
+
 }

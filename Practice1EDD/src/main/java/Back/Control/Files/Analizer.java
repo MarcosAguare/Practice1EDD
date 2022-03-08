@@ -5,6 +5,7 @@ import Back.Objects.Bet;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -14,7 +15,7 @@ import java.util.Scanner;
 public class Analizer {
 
     private ListDin list = new ListDin();
-    private ListDin errors = new ListDin();
+    private ArrayList<String> errors = new ArrayList<>();
 
     public void readArchive(String path) {
         Scanner scan = null;
@@ -44,7 +45,7 @@ public class Analizer {
             Bet bet = new Bet(horses, mount, LocalDate.now(), 0, parts[0].trim(), false);
             list.addStart(bet);
         } catch (Exception e) {
-            
+            errors.add(line);
         }
     }
 

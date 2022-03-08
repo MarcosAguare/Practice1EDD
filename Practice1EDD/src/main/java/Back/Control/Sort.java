@@ -11,9 +11,8 @@ import Back.Objects.Bet;
 public class Sort {
 
     public boolean sortByGambler(ListDin list) {
-
         try {
-            Node current = list.getFirst();
+            Node current = list.getLast();
             while (current != null) {
                 Node comparing = current;
                 while (comparing != null) {
@@ -23,9 +22,9 @@ public class Sort {
                         comparing.setElement(current.getElement());
                         current.setElement(tmp);
                     }
-                    comparing = comparing.getNext();
+                    comparing = comparing.getPrevious();
                 }
-                current = current.getNext();
+                current = current.getPrevious();
             }
             return true;
         } catch (Exception e) {
