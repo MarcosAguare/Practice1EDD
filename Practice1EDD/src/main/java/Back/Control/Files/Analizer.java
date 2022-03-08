@@ -31,7 +31,9 @@ public class Analizer {
                 scan.close();
             }
         }
-
+        for (String error : errors) {
+            System.out.println(error);
+        }
     }
 
     private void addToList(String line) {
