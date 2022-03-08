@@ -12,19 +12,19 @@ public class Sort {
 
     public boolean sortByGambler(ListDin list) {
         try {
-            Node current = list.getLast();
-            while (current != null) {
-                Node comparing = current;
-                while (comparing != null) {
-                    if (comparing.getElement().getBettor_name()
-                            .compareTo(current.getElement().getBettor_name()) > 0) {
-                        Bet tmp = comparing.getElement();
-                        comparing.setElement(current.getElement());
-                        current.setElement(tmp);
+            Node node = list.getLast();
+            while (node != null) {
+                Node second = node;
+                while (second != null) {
+                    if (second.getElement().getBettor_name()
+                            .compareTo(node.getElement().getBettor_name()) > 0) {
+                        Bet tmp = second.getElement();
+                        second.setElement(node.getElement());
+                        node.setElement(tmp);
                     }
-                    comparing = comparing.getPrevious();
+                    second = second.getPrevious();
                 }
-                current = current.getPrevious();
+                node = node.getPrevious();
             }
             return true;
         } catch (Exception e) {
@@ -34,24 +34,19 @@ public class Sort {
 
     public void sortByPoints(ListDin list) {
         try {
-            Node current = list.getFirst();
-            while (current != null) {
-                int stepByLoop = 1;
-                int realStepByLoop = 2;
-                Node comparing = current;
-                while (comparing != null) {
-                    stepByLoop++;
-                    realStepByLoop++;
-                    if (((Bet) comparing.getElement()).getPoints() > current.getElement()
+            Node node = list.getFirst();
+            while (node != null) {
+                Node second = node;
+                while (second != null) {
+                    if (((Bet) second.getElement()).getPoints() > node.getElement()
                             .getPoints()) {
-                        Bet tmp = (Bet) comparing.getElement();
-                        comparing.setElement(current.getElement());
-                        current.setElement(tmp);
+                        Bet tmp = (Bet) second.getElement();
+                        second.setElement(node.getElement());
+                        node.setElement(tmp);
                     }
-                    comparing = comparing.getNext();
-                    realStepByLoop++;
+                    second = second.getNext();
                 }
-                current = current.getNext();
+                node = node.getNext();
             }
         } catch (Exception e) {
 

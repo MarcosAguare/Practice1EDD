@@ -5,7 +5,6 @@ import Back.DataEstructure.Node;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -15,30 +14,6 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  * @author aguare
  */
 public class Export {
-
-    public void exportCSVRechazed(ArrayList<String> errors) {
-        String path = getPath();
-        if (path == null) {
-            JOptionPane.showMessageDialog(null,
-                    "No se pudo guardar el archivo");
-        } else {
-            path = path.endsWith(".csv") ? path : path + ".csv";
-            try {
-                File file = new File(path);
-                FileWriter writer = new FileWriter(file);
-                if (!file.exists()) {
-                    file.createNewFile();
-                }
-                for (String error : errors) {
-                    writer.write(error);
-                }
-                writer.close();
-            } catch (IOException e) {
-                JOptionPane.showMessageDialog(null,
-                        "No se pudo guardar el archivo");
-            }
-        }
-    }
 
     public void exportCSV(ListDin bets) {
         String path = getPath();
