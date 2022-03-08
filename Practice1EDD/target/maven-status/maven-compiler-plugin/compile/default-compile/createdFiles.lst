@@ -1,10 +1,14 @@
 Back/DataEstructure/ListDin.class
 Front/Principal$3.class
+Front/InsertResults$2.class
 Back/Control/Files/Export.class
+Front/Principal$4.class
+Front/InsertResults$1.class
 Front/Principal.class
 Front/TableBets$1.class
 Front/Principal$1.class
 Back/Control/VerifyBets.class
+Front/InsertResults.class
 Back/Objects/Bet.class
 Front/TableBets$2.class
 Front/TableBets.class
@@ -13,7 +17,6 @@ Back/Control/Sort.class
 Front/TableBets$3.class
 Back/Objects/History.class
 Back/DataEstructure/Node.class
-Front/MainPrueba.class
 Back/Control/Results.class
 Back/Control/Timer.class
 Front/Principal$2.class

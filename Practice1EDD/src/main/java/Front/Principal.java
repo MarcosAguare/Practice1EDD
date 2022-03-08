@@ -75,8 +75,10 @@ public class Principal extends javax.swing.JFrame {
         });
 
         insertBtn.setText("Ingreso Manual");
+        insertBtn.setEnabled(false);
 
         verifyBtn.setText("Verificar Ingresados");
+        verifyBtn.setEnabled(false);
         verifyBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 verifyBtnActionPerformed(evt);
@@ -84,6 +86,7 @@ public class Principal extends javax.swing.JFrame {
         });
 
         insertResultBtn.setText("Ingresar Resultados");
+        insertResultBtn.setEnabled(false);
         insertResultBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 insertResultBtnActionPerformed(evt);
@@ -91,6 +94,7 @@ public class Principal extends javax.swing.JFrame {
         });
 
         historialBtn.setText("Historial");
+        historialBtn.setEnabled(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -207,6 +211,7 @@ public class Principal extends javax.swing.JFrame {
             analizer.readArchive(path);
             TableBets accept = new TableBets(analizer.getList(), "Apuestas Ingresadas", false);
             accept.setVisible(true);
+            verifyBtn.setEnabled(true);
         }
     }//GEN-LAST:event_archiveBtnActionPerformed
 
@@ -215,10 +220,14 @@ public class Principal extends javax.swing.JFrame {
         TableBets accepted = new TableBets(verify.getAccepted(), "Apuestas Aceptadas", true);
         export.exportCSV(verify.getRejected());
         accepted.setVisible(true);
+        insertResultBtn.setEnabled(true);
     }//GEN-LAST:event_verifyBtnActionPerformed
 
     private void insertResultBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertResultBtnActionPerformed
         int[] h = {8, 6, 1, 2, 3, 4, 5, 7, 9, 10};
+        InsertResults insert = new InsertResults(this, true);
+        insert.setVisible(true);
+        h = insert.getResult();
         results = new Results(h, verify.getAccepted());
         TableBets f = new TableBets(results.getBets(), "Resultados Finales", true);
         f.setVisible(true);

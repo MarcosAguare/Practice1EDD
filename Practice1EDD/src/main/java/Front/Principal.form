@@ -143,11 +143,13 @@
         <Component class="javax.swing.JButton" name="insertBtn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ingreso Manual"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="verifyBtn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Verificar Ingresados"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="verifyBtnActionPerformed"/>
@@ -156,6 +158,7 @@
         <Component class="javax.swing.JButton" name="insertResultBtn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ingresar Resultados"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="insertResultBtnActionPerformed"/>
@@ -164,6 +167,7 @@
         <Component class="javax.swing.JButton" name="historialBtn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Historial"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
       </SubComponents>

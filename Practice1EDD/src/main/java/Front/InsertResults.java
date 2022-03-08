@@ -1,10 +1,16 @@
 package Front;
 
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author aguare
  */
 public class InsertResults extends javax.swing.JDialog {
+
+    private int[] result = new int[10];
+    private String[] selected = new String[10];
 
     /**
      * Creates new form InsertResults
@@ -12,6 +18,7 @@ public class InsertResults extends javax.swing.JDialog {
     public InsertResults(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -23,26 +30,41 @@ public class InsertResults extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        optionSelected = new javax.swing.JComboBox<>();
+        addBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
-        jButton2 = new javax.swing.JButton();
+        listAdded = new javax.swing.JList<>();
+        removeBtn = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Ingresar Resultados");
+        setUndecorated(true);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9", "C10" }));
+        optionSelected.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9", "C10" }));
 
-        jButton1.setText("Agregar");
+        addBtn.setText("Agregar");
+        addBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addBtnActionPerformed(evt);
+            }
+        });
+
+        jScrollPane1.setViewportView(listAdded);
+
+        removeBtn.setText("Eliminar");
+        removeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeBtnActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Finalizar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-
-        jScrollPane1.setViewportView(jList1);
-
-        jButton2.setText("Eliminar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -52,11 +74,12 @@ public class InsertResults extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jScrollPane1)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(optionSelected, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(removeBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(addBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -64,12 +87,14 @@ public class InsertResults extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(optionSelected, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton2)
+                        .addComponent(removeBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jScrollPane1))
                 .addContainerGap())
@@ -78,16 +103,100 @@ public class InsertResults extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
+        String select = (String) optionSelected.getSelectedItem();
+        switch (select) {
+            case "C1":
+                addResult(1, select);
+                break;
+            case "C2":
+                addResult(2, select);
+                break;
+            case "C3":
+                addResult(3, select);
+                break;
+            case "C4":
+                addResult(4, select);
+                break;
+            case "C5":
+                addResult(5, select);
+                break;
+            case "C6":
+                addResult(6, select);
+                break;
+            case "C7":
+                addResult(7, select);
+                break;
+            case "C8":
+                addResult(8, select);
+                break;
+            case "C9":
+                addResult(9, select);
+                break;
+            case "C10":
+                addResult(10, select);
+                break;
+            default:
+                break;
+        }
+        optionSelected.removeItem(select);
+    }//GEN-LAST:event_addBtnActionPerformed
+
+    private void removeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeBtnActionPerformed
+        int[] selected = listAdded.getSelectedIndices();
+        for (int i = 0; i < selected.length; i++) {
+            removeResult(selected[i]);
+        }
+
+    }//GEN-LAST:event_removeBtnActionPerformed
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        if (optionSelected.getItemCount() == 0) {
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(this, "Debe seleccionar 10 posiciones", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void addResult(int n, String name) {
+        DefaultListModel model = new DefaultListModel();
+        for (int i = 0; i < 10; i++) {
+            if (result[i] == 0) {
+                result[i] = n;
+                selected[i] = name;
+                break;
+            }
+        }
+        for (int i = 0; i < 10; i++) {
+            model.add(i, selected[i]);
+        }
+        listAdded.setModel(model);
+    }
+
+    private void removeResult(int n) {
+        DefaultListModel model = new DefaultListModel();
+        String name = "";
+        result[n] = 0;
+        name = selected[n];
+        selected[n] = "";
+        optionSelected.addItem(name);
+        for (int i = 0; i < 10; i++) {
+            model.add(i, selected[i]);
+        }
+        listAdded.setModel(model);
+    }
+
+    public int[] getResult() {
+        return result;
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addBtn;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList<String> listAdded;
+    private javax.swing.JComboBox<String> optionSelected;
+    private javax.swing.JButton removeBtn;
     // End of variables declaration//GEN-END:variables
 }

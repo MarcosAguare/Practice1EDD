@@ -69,22 +69,19 @@ public class Export {
         try {
             File file = new File(path);
             FileWriter writer;
-            Node current = bets.getFirst();
+            Node node = bets.getFirst();
             if (!file.exists()) {
                 file.createNewFile();
             }
 
             writer = new FileWriter(file);
-            while (current != null) {
+            while (node != null) {
                 String horses = "";
-                for (int i = 0; i < current.getElement().getHorses().length; i++) {
-                    horses += "," + current.getElement().getHorses()[i];
+                for (int i = 0; i < node.getElement().getHorses().length; i++) {
+                    horses += "," + node.getElement().getHorses()[i];
                 }
-                writer.write(
-                        current.getElement().getBettor_name() + "," + current.getElement().getBet_amount() + horses
-                        + "\n");
-
-                current = current.getNext();
+                writer.write(node.getElement().getBettor_name() + "," + node.getElement().getBet_amount() + horses + "\n");
+                node = node.getNext();
             }
             writer.close();
         } catch (IOException e) {
